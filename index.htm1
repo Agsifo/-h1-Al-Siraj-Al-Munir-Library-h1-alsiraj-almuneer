@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مكتبة السراج المنير</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f5f5f5;
+      text-align: center;
+      direction: rtl;
+    }
+    header {
+      background: #007bff;
+      color: white;
+      padding: 15px;
+      border-radius: 0 0 20px 20px;
+    }
+    .languages {
+      margin-top: 10px;
+    }
+    .bookshelf {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .book {
+      background: #fff;
+      border: 1px solid #ccc;
+      width: 120px;
+      height: 180px;
+      margin: 10px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    .tasbeeh {
+      margin-top: 20px;
+    }
+    .counter {
+      font-size: 20px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📘 مكتبة السراج المنير</h1>
+    <p>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+    <p>مرحباً بك في رحلتك العلمية الممتعة!</p>
+    <p>تصميم: حسين الصيمري</p>
+    <div class="languages">
+      🌐 اللغة: 
+      <select>
+        <option>🇮🇶 العربية</option>
+        <option>🇮🇷 الفارسية</option>
+        <option>English</option>
+      </select>
+    </div>
+  </header>
+
+  <div class="bookshelf">
+    <div class="book">📖 كتاب ديني</div>
+    <div class="book">📘 فيزياء</div>
+    <div class="book">📗 كيمياء</div>
+  </div>
+
+  <div class="tasbeeh">
+    <h3>🕌 مسبحة إلكترونية</h3>
+    <button onclick="tasbeeh++ ; updateTasbeeh()">سبح</button>
+    <div class="counter" id="tasbeehCounter">0 / 1000000</div>
+  </div>
+
+  <div class="counter">
+    👁️‍🗨️ عدد الزوار: <span id="visitorCount">1</span>
+  </div>
+
+  <script>
+    // مسبحة إلكترونية
+    let tasbeeh = 0;
+    function updateTasbeeh() {
+      document.getElementById('tasbeehCounter').textContent = tasbeeh + " / 1000000";
+    }
+
+    // عداد زوار وهمي
+    let visitors = localStorage.getItem('visitors') || 1;
+    visitors++;
+    localStorage.setItem('visitors', visitors);
+    document.getElementById('visitorCount').textContent = visitors;
+  </script>
+
+</body>
+</html>
